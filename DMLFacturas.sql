@@ -6,6 +6,7 @@ INSERT INTO Personas(cedula, nombre, apellido_uno, apellido_dos, telefono, puest
 ("304577984", "ALBERTO", "GUADAMUZ", "MORA", "80924524", "Tecnico"),
 ("702660197", "JINDRA", "CASCANTE", "BENAVIDES", "30549786", "Jefe"),
 ("204631982", "NICOLAS", "CASTRO", "PEREZ", "98743215", "Tecnico");
+    
 
 INSERT INTO registro_bitacora(id_usuario, id_bitacora, fecha_registro, hora_registro) VALUES 
 ("000001", 1, "2022-10-10", "13:43:22"),
@@ -28,7 +29,7 @@ INSERT INTO bitacoras(id_boton, id_pantalla) VALUES
 ("03", "03");
 
 INSERT INTO Usuarios(id_usuario, nombre_usuario, numero_maquina, correo_electronico, contraseña, estado, cedula_persona) VALUES 
-("000001", "CarlosMC", "SJO-02-9324", "carlosmc@gmail.com", "$1$rasmusle$AChEFB8ZXJso99G8flbWf0I2Q6L4E0M4K2H8F7R1", 1, "103580137"),
+("000001", "CarlosMC", "SJO-02-9324", "carlosmc@gmail.com", "$2y$10$kgPKczj8R5ExG6FYxQkTsuffxlGcJyaOpOQSQa.kiK7kQ3KN42GGa", 1, "103580137"),
 ("000002", "MariaFG", "SJO-04-4647", "mariafg34@gmail.com", "$1$rasmusle$2/DR6TEqq/hC2YqAOerOt/X3R5U4V6N2O4R8J4M2", 1, "206478961"),
 ("000003", "AlbertoGM", "SJO-05-1546","albertogm@gmail.com", "$1$rasmusle$V2xPHycq6JrG3f1sc6lUY1E4H6H0I2T1X7E2A0T3", 1, "304577984"),
 ("000004", "NicFury", "LI-02-5834", "nicolasB@gmail.com", "$1$rasmusle$V2xPHycq6JrG3f1sc6lUY1E4H6H0I2T1X7E2A0T3", 0, "204631982"),
@@ -189,5 +190,3 @@ INSERT INTO detallefactura (id_articulo, id_factura, descuento, cantidad_articul
 ("00015", "000010-2021", 10, 2, 167000, NULL),
 ("00010", "000011-2020", 5, 1, 14500, NULL),
 ("00013", "000011-2020", 5, 1, 34500, NULL);
-
-DELETE FROM detallefactura;

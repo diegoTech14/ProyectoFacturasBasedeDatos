@@ -30,24 +30,6 @@ SELECT facturas.id_factura, facturas.periodo_presupuestario, facturas.tipo_factu
 	facturas.estado, facturas.observaciones, facturas.nombre_moneda FROM facturas WHERE YEAR(facturas.periodo_presupuestario) = 2020;
     
     
--- Obtener la cantidad de articulos relacionado a cada factura pasandole como parámetro el estado de las facturas
-DELIMITER // 
-CREATE PROCEDURE reporteFacturas(IN estado BOOLEAN)
-	BEGIN
-		SELECT facturas.id_factura, facturas.periodo_presupuestario, facturas.monto_bruto, facturas.monto_neto, 
-				facturas.impuesto_iva, facturas.impuesto_renta, facturas.estado, SUM(detallefactura.cantidad_articulo) AS "CANTIDAD DE ARTICULOS" FROM facturas
-                INNER JOIN detallefactura ON detallefactura.id_factura = facturas.id_factura WHERE facturas.estado = estado
-                GROUP BY(detallefactura.id_factura) ORDER BY(detallefactura.cantidad_articulo);
-	END
-//
-
-CALL reporteFacturas(0);
-
--- obtener los articulos que ofrece cada proveedor
-SELECT articulo.id_articulo, articulo.nombre, proveedor.cedula, proveedor.nombre FROM articulo
-	INNER JOIN proveedorarticulo ON articulo.id_articulo = proveedorarticulo.id_articulo
-    INNER JOIN proveedor ON proveedorarticulo.cedula = proveedor.cedula;
-    
 -- Obtener la conversión de las facturas cuya moneda es el dolar
 SELECT facturas.id_factura, facturas.monto_bruto AS "MONTO EN DOLAR", 
 (facturas.monto_bruto * tipoMoneda.tipo_cambio) AS "MONTO EN COLÓN" FROM facturas
